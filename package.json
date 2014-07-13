@@ -1,0 +1,41 @@
+{
+  "name": "MongoInstance",
+  "description": "An abstraction layer for mongodb.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/lgoldstien/MongoInstance",
+  "author": {
+    "name": "Lawrence Goldstien",
+    "email": "lgoldstien@onmylemon.co.uk",
+    "url": "http://onmylemon.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lgoldstien/MongoInstance.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lgoldstien/MongoInstance/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/lgoldstien/MongoInstance/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/MongoInstance",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.4"
+  },
+  "keywords": [],
+  "dependencies": {
+    "mongodb": "~1.4.7"
+  }
+}
