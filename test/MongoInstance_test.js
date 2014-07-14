@@ -1,6 +1,6 @@
 'use strict';
 
-var MongoInstance = require('../lib/MongoInstance.js');
+// var MongoInstance = require('../lib/MongoInstance.js');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -25,37 +25,5 @@ var MongoInstance = require('../lib/MongoInstance.js');
 exports.nodeunit = {
     setUp: function(done) {
         done();
-    },
-    'Connection Strings - Valid Strings': function(test) {
-        test.expect(3);
-        test.doesNotThrow(function() {
-            new MongoInstance("mongodb://localhost", true);
-        });
-        test.doesNotThrow(function() {
-            new MongoInstance("mongodb://localhost:3092/db", true);
-        });
-        test.doesNotThrow(function() {
-            new MongoInstance("mongodb://admin:pass@localhost:3092/db", true);
-        });
-        test.done();
-    },
-    'Connection Strings - Invalid Strings': function(test) {
-        test.expect(5);
-        test.throws(function() {
-            new MongoInstance("mongodb://", true);
-        }, Error);
-        test.throws(function() {
-            new MongoInstance("mongdb://localhost/db", true);
-        }, Error);
-        test.throws(function() {
-            new MongoInstance("mongodb://b@d:auth@localhost/db", true);
-        }, Error);
-        test.throws(function() {
-            new MongoInstance("mongodb://loca£*$ost/db", true);
-        }, Error);
-        test.throws(function() {
-            new MongoInstance("mongodb://localhost/da7a$b$5%1'", true);
-        }, Error);
-        test.done();
     },
 };
