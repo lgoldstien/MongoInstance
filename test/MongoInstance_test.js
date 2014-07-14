@@ -1,29 +1,58 @@
 'use strict';
 
-// var MongoInstance = require('../lib/MongoInstance.js');
+var MongoInstance = require('../lib/MongoInstance.js');
+// var EVENTS = require('../lib/Events.js');
 
-/*
-  ======== A Handy Little Nodeunit Reference ========
-  https://github.com/caolan/nodeunit
-
-  Test methods:
-    test.expect(numAssertions)
-    test.done()
-  Test assertions:
-    test.ok(value, [message])
-    test.equal(actual, expected, [message])
-    test.notEqual(actual, expected, [message])
-    test.deepEqual(actual, expected, [message])
-    test.notDeepEqual(actual, expected, [message])
-    test.strictEqual(actual, expected, [message])
-    test.notStrictEqual(actual, expected, [message])
-    test.throws(block, [error], [message])
-    test.doesNotThrow(block, [error], [message])
-    test.ifError(value)
-*/
+var mongodb, connection = { url: "mongodb://localhost", collection: "NODEUNIT_test_collection" };
 
 exports.nodeunit = {
     setUp: function(done) {
+        mongodb = new MongoInstance({
+            url: connection.url,
+            autoConnect: false,
+            autoSetup: false,
+        });
         done();
     },
+    "Setup the Database": function(test) {
+        test.expect(1);
+        test.doesNotThrow( function () {
+            mongodb.setup();
+        }, Error, "Could not set up the Database" );
+        test.done();
+    },
+    // "Connect to the Database": function(test) {
+    //     test.expect(2);
+    //
+    //     test.doesNotThrow( function () {
+    //         mongodb.setup().connect();
+    //     }, Error, "Could not connect to the Database" );
+    //
+    //     test.doesNotThrow( function () {
+    //         mongodb.events.on(EVENTS.CONNECTED, function () {
+    //             mongodb.setCollection(connection.collection);
+    //             test.done();
+    //         });
+    //
+    //         mongodb.setup().connect();
+    //     }, Error, "Could not select the collection: " + connection.collection );
+    // },
+    // "Write to the Database": function(test) {
+    //     test.expect(2);
+    //
+    //     mongodb.events.on(EVENTS.CLOSED, test.done.bind(this));
+    //
+    //     test.doesNotThrow( function () {
+    //         mongodb.setup().connect();
+    //     }, Error, "Could not connect to the Database" );
+    //
+    //     test.doesNotThrow( function () {
+    //         mongodb.events.on(EVENTS.CONNECTED, function () {
+    //             mongodb.setCollection(connection.collection);
+    //             mongodb.cleanup();
+    //         });
+    //
+    //         mongodb.setup().connect();
+    //     }, Error, "Could not select the collection: " + connection.collection );
+    // }
 };

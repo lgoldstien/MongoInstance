@@ -1,6 +1,7 @@
 # MongoInstance
 
 [![Build Status](https://secure.travis-ci.org/lgoldstien/MongoInstance.png?branch=master)](http://travis-ci.org/lgoldstien/MongoInstance)
+[![Build Status](https://secure.travis-ci.org/lgoldstien/MongoInstance.png?branch=development)](http://travis-ci.org/lgoldstien/MongoInstance)
 
 An abstraction layer for mongodb providing events and utility methods.
 
@@ -36,5 +37,5 @@ Events are published using node's event emitter.
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## License
-Copyright (c) 2014 Lawrence Goldstien  
+Copyright (c) 2014 Lawrence Goldstien
 Licensed under the MIT license.
